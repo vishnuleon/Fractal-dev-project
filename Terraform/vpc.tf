@@ -10,14 +10,7 @@ resource "aws_subnet" "subnet" {
  vpc_id                  = aws_vpc.main.id
  cidr_block              = cidrsubnet(aws_vpc.main.cidr_block, 8, 1)
  map_public_ip_on_launch = true
- availability_zone       = "eu-central-1a"
-}
-
-resource "aws_subnet" "subnet2" {
- vpc_id                  = aws_vpc.main.id
- cidr_block              = cidrsubnet(aws_vpc.main.cidr_block, 8, 2)
- map_public_ip_on_launch = true
- availability_zone       = "eu-central-1b"
+ availability_zone       = "us-east-1"
 }
 
 resource "aws_internet_gateway" "internet_gateway" {
@@ -37,11 +30,6 @@ resource "aws_route_table" "route_table" {
 
 resource "aws_route_table_association" "subnet_route" {
  subnet_id      = aws_subnet.subnet.id
- route_table_id = aws_route_table.route_table.id
-}
-
-resource "aws_route_table_association" "subnet2_route" {
- subnet_id      = aws_subnet.subnet2.id
  route_table_id = aws_route_table.route_table.id
 }
 
