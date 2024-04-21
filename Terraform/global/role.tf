@@ -8,6 +8,13 @@ resource "aws_iam_role" "management-role" {
         Service = "ec2.amazonaws.com"
       },
       Action    = "sts:AssumeRole"
+    },
+    {
+      Effect    = "Allow",
+      Principal = {
+        Service = "ecs.amazonaws.com"
+      },
+      Action    = "sts:AssumeRole"
     }]
   })
 }
