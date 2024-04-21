@@ -10,7 +10,7 @@ resource "aws_ecs_task_definition" "ecs_task_definition" {
  container_definitions = jsonencode([
    {
      name      = "dockergs"
-     image     = "public.ecr.aws/us-east-1/simple-webserver:v1"
+     image     = "public.ecr.aws/us-east-1/simple-webserver:latest"
      cpu       = 256
      memory    = 512
      essential = true
